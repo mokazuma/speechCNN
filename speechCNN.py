@@ -2,7 +2,7 @@
 '''
 Simple audio classification with Keras
 
-This code is translated following rstudiio/kears code.
+This code is translated following rstudio/keras code.
 https://tensorflow.rstudio.com/blog/simple-audio-classification-keras.html
 
 Environment: MacOS 10.12, Python 3.6.4, Tensorflow 1.8.0, Keras 2.2.0

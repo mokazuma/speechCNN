@@ -9,20 +9,20 @@ Environment: MacOS 10.12, Python 3.6.4, Tensorflow 1.8.0, Keras 2.2.0
 '''
 
 import os
-root = '/Users/xxx/Documents'
+mydir = '/Users/xxx/Documents'
 
 ###############################################################################
 ### Download data
 import urllib.request
 import tarfile
 
-os.mkdir(root+'/spdat')
+os.mkdir(mydir+'/spdat')
 
 url = "http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz"
 destfile = "/speech_commands_v0.01.tar.gz"
-urllib.request.urlretrieve(url, root+'/spdat'+destfile)
+urllib.request.urlretrieve(url, mydir+'/spdat'+destfile)
 
-tarfile.open(root+'/spdat'+destfile).extractall(root+'/spdat/speech_commands_v0.01')
+tarfile.open(mydir+'/spdat'+destfile).extractall(mydir+'/spdat/speech_commands_v0.01')
 
 ###############################################################################
 ### Importing
@@ -37,7 +37,7 @@ from keras.layers import Conv2D, MaxPooling2D
 import tensorflow as tf
 from tensorflow.contrib.framework.python.ops import audio_ops
 
-files = glob.glob(root+'/spdat/speech_commands_v0.01/*/*.wav')
+files = glob.glob(mydir+'/spdat/speech_commands_v0.01/*/*.wav')
 word = [os.path.split(os.path.split(files[x])[0])[1] for x in range(len(files))]
 df = pd.DataFrame({'fname': files, 'word': word}).query("word!='_background_noise_'")
 
